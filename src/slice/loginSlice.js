@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setCookies } from "../utils/cookieUtil";
+import { setCookies, removeCookies } from "../utils/cookieUtil";
 
 const initialState = {
     email : ''
@@ -21,11 +21,19 @@ const loginSlice = createSlice({
             //email 상태를 업데이트한다.
             // email = action.payload.email 상태 정보는 불변
             return {email: action.payload.email};
+        },
+        logout:(state, action) => {
+               // 쿠키에서 사용자 정보를 제거한다.
+            removeCookies("member");
+            // 상태를 초기화한다.
+            return { ...initialState};
         }
+
     }
 });
 
-export const {login} = loginSlice.actions; // 액션 생성자 함수
+export const {login, logout} = loginSlice.actions; // 액션 생성자 함수 
+
 
 
 export default loginSlice.reducer; // 리듀서

@@ -17,6 +17,6 @@ export const getCookies = (name) =>{
 }
 
 // 쿠키 삭제 -> 로그 아웃
-export const removeCookie = (name, path = '/') => {
+export const removeCookies = (name, path = '/') => {
   cookie.remove(name, { path });
 };
