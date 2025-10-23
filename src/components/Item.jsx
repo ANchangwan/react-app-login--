@@ -14,25 +14,26 @@ function Item(){
             setItems(data);
         })
         .catch((ex) =>{
-            const errorMsg = ex.response.data.error; 
-            console.log("itemjs errormsmg: ",errorMsg)
-            const searchParams = createSearchParams({error : errorMsg}).toString();
+            // const errorMsg = ex.response.data.error; 
+            // console.log("itemjs errormsmg: ",errorMsg)
+            // const searchParams = createSearchParams({error : errorMsg}).toString();
 
-            if(errorMsg === "REQUIRED_LOGIN"){
-                alert("you must login");
-                navigate({
-                    pathname: "/login",
-                    search: `?${searchParams}`,
-                }); //
-            }
+            // if(errorMsg === "REQUIRED_LOGIN"){
+            //     alert("you must login");
+            //     navigate({
+            //         pathname: "/login",
+            //         search: `?${searchParams}`,
+            //     }); //
+            // }
         })  
     },[]);
     return (
         <>
             <h1>상품 목록 조회</h1>
             {
-                items.map((item) =>{
-                    return (<div id={item.id}>
+                items.map((item,i) =>{
+                    return (
+                    <div key={item.id}>
                         <span style={{margin:"2px"}}>{item.id}</span>
                         <span style={{margin:"2px"}}>{item.name}</span>
                     </div>)

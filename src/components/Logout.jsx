@@ -6,7 +6,7 @@ function Logout(){
     const navigator = useNavigate();
     const handleClick = () =>{
         
-        dispatch(Logout());
+        dispatch(logout());
         navigator("/")
     }
 

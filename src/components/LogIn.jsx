@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { postLogin } from "../api/memberApi";
 import { useNavigate } from "react-router-dom";
-import { login } from "../slice/loginSlice";
+import { login, postLoginAsync } from "../slice/loginSlice";
 import { useDispatch } from "react-redux";
 import { setCookies } from "../utils/cookieUtil";
 
@@ -44,6 +44,21 @@ function LogIn(){
                 console.log('error : ',error);
                 alert("아이디와 비밀번호를 정확히 입력해주세요");
             })
+
+        // dispatch(postLoginAsync())
+        // .unwrap()
+        // .then((data) =>{
+        //   if(!data.error){
+        //     navigate("/", {replace:true});
+        //   }else {
+        //     alert('아이디와 비밀번호를 정확히 입력해주세요');
+        //     setLoginParam({...loginParam})
+        //   }
+        // })
+        // .catch((error) =>{
+        //   console.log("error : ", error);
+        // })
+
     }
    
     return (

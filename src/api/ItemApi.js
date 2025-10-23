@@ -5,9 +5,14 @@ export const API_SERVER_HOST = "http://localhost:9000";
 
 const prefix = `${API_SERVER_HOST}/api/v1`;
 
+console.log('prefix : ', prefix);
 
-export const getItems = async() =>{
+export const getItems = async () => {
+
     const res = await jwtAxios.get(`${prefix}/items`);
 
-    return res.data;
+    console.log("res", res);
+
+    return res;
+
 }
